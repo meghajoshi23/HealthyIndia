@@ -1,0 +1,548 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" MasterPageFile="" Debug="true" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+
+<style type="text/css"> 
+
+.arrowsidemenu{
+            width: 180px; /*width of menu*/
+            border-style: solid solid none solid;
+            border-color: #94AA74;
+            border-size: 1px;
+            border-width: 1px;
+}           
+.arrowsidemenu div a{ /*header bar links*/
+            font: bold 12px Verdana, Arial, Helvetica, sans-serif;
+            display: block;000000
+            background: transparent url(arrowgreen.gif) 100% 0;
+  height: 24px; /*Set to height of bg image-padding within link (ie: 32px - 4px - 4px)*/
+            padding: 4px 0 4px 10px;
+            line-height: 24px; /*Set line-height of bg image-padding within link (ie: 32px - 4px - 4px)*/
+            text-decoration: none;
+}            
+.arrowsidemenu div a:link, .arrowsidemenu div a:visited{
+            color: #26370A;
+        height: 22px;
+        width: 170px;
+    } 
+.arrowsidemenu div a:hover{
+            background-position: 100% -32px;
+} 
+
+.arrowsidemenu div.unselected a{ /*header that's currently not selected*/
+            color: #6F3700;}             
+.arrowsidemenu div.selected a{ /*header that's currently selected*/
+            color: blue;
+            background-position: 100% -64px !important;
+} 
+
+.arrowsidemenu ul{
+            list-style-type: none;
+            margin: 0;
+            padding: 0;} 
+.arrowsidemenu ul li{
+            border-bottom: 1px solid #a1c67b;} 
+
+.arrowsidemenu ul li a{ /*sub menu links*/
+            display: block;
+            font: normal 12px Verdana, Arial, Helvetica, sans-serif;
+            text-decoration: none;
+            color: black;
+            padding: 5px 0;
+            padding-left: 10px;
+            border-left: 10px double #a1c67b;
+} 
+.arrowsidemenu ul li a:hover{
+            background: #d5e5c1;} 
+
+</style>
+
+    <title></title>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        .style1
+        {
+            width: 100%;
+            height: 202px;
+        }
+        .style2
+        {
+            height: 76px;
+            width: 183px;
+        }
+        .style8
+        {
+            height: 76px;
+            font-family: "Bradley Hand ITC";
+            font-size: xx-large;
+        }
+        .style9
+        {
+            color: #FF9933;
+            font-size: xx-large;
+        }
+        .style15
+        {
+            width: 212px;
+            height: 34px;
+            text-align: center;
+        }
+        .style18
+        {
+            width: 183px;
+            height: 34px;
+            text-align: center;
+        }
+        .style21
+        {
+            width: 211px;
+            height: 34px;
+            text-align: center;
+        }
+        .style26
+        {
+            width: 82px;
+            height: 34px;
+            text-align: center;
+        }
+        .style28
+        {
+            width: 100%;
+            height: 22px;
+        }
+        .style31
+        {
+            color: #003366;
+            font-size: x-large;
+        }
+        .style34
+        {
+            color: #0033CC;
+            font-size: x-large;
+        }
+        .style36
+        {
+            color: #000000;
+            font-size: x-large;
+        }
+        .style37
+        {
+            color: #000066;
+            font-size: x-large;
+        }
+        .style38
+        {
+            font-size: x-large;
+        }
+        .style39
+        {
+            color: #FF0000;
+        }
+        .style40
+        {
+            width: 430px;
+            height: 13px;
+        }
+        .style44
+        {
+            text-align: center;
+            width: 430px;
+        }
+        .style46
+        {
+            width: 430px;
+        }
+                    
+         #menu {
+
+            margin: 0px auto;
+
+            width: 101%;
+
+        }
+
+             * {
+
+            margin: 0px;
+
+            padding: 0px;
+            text-align: center;
+        }
+
+ 
+
+             #menu ul {
+
+                list-style: none;
+
+            }
+
+                 #menu ul li {
+
+                    float: left;
+
+                    position: relative;
+
+                }
+
+                     #menu ul li ul {
+
+                        position: absolute;
+
+                        display: none;
+
+                        top: 27px;
+
+                        width: 200px;
+
+                    }
+
+                         #menu ul li ul li {
+
+                            position: relative;
+
+                            float: none;
+
+                        }
+
+                     #menu ul li ul li ul {
+
+            display: none !important;
+
+            left: 195px;
+
+            top: 0px;
+
+            position: absolute;
+
+            margin-left: 13px;
+
+        }
+
+             #menu ul li ul li ul li {
+
+                position: relative;
+
+            }
+
+                #menu ul li ul li ul li ul {
+
+            visibility: hidden;
+
+            position: absolute;
+
+            left: 195px;
+
+        }
+
+         .style54
+        {
+        }
+
+         .style55
+        {
+            text-align: center;
+            width: 436px;
+            height: 64px;
+        }
+        .style56
+        {
+            width: 436px;
+        }
+        .style58
+        {
+            width: 59px;
+            height: 34px;
+            text-align: center;
+        }
+        .style59
+        {
+            height: 76px;
+            font-family: "Bradley Hand ITC";
+            font-size: xx-large;
+            width: 59px;
+        }
+        
+         .style63
+        {
+            width: 100%;
+        }
+
+         .style66
+        {
+            text-align: left;
+            width: 430px;
+            height: 64px;
+        }
+
+         .style67
+        {
+            text-decoration: underline;
+            color: #0000FF;
+        }
+
+         .style69
+        {
+            width: 430px;
+            height: 64px;
+        }
+        .style70
+        {
+            text-align: left;
+            height: 7px;
+        }
+
+         .style71
+        {
+            color: #FF0000;
+            font-size: x-large;
+        }
+        .style72
+        {
+            color: #CC0000;
+            font-size: x-large;
+        }
+        .style73
+        {
+            color: #0000CC;
+            font-size: x-large;
+        }
+        .style74
+        {
+            color: #FF3300;
+            font-size: x-large;
+        }
+        .style75
+        {
+            color: #006600;
+            font-size: x-large;
+        }
+        .style76
+        {
+            color: #FF6600;
+            font-size: x-large;
+        }
+        .style77
+        {
+            color: #003300;
+            font-size: x-large;
+        }
+        .style80
+        {
+            width: 436px;
+            height: 24px;
+        }
+        .style81
+        {
+            width: 430px;
+            height: 24px;
+        }
+        
+         .style82
+        {
+            color: #0000CC;
+        }
+        
+         .auto-style1 {
+            height: 7px;
+        }
+        
+         </style>
+    <script languag="javascript" type="text/javascript">
+// <![CDATA[
+
+        function TextArea1_onclick() {
+
+        }
+
+// ]]>
+    </script>
+</head>
+<body alink="#81aac8" bgcolor="#CCCCFF"
+     style="height: 529px; width: 1332px">
+    
+    <form id="form1" runat="server">
+    <table class="style1">
+        <tr>
+            <td class="style2">
+                <asp:Image ID="Image1" runat="server" Height="175px" 
+                    ImageUrl="~/imagi/logo_main.jpg" Width="200px" />
+            </td>
+            <td class="style8" colspan="4">
+                <pre class="style9" lang="kv" 
+                    style="padding: inherit; margin: auto; font-size: 97px; font-weight: 900; color: #CC0000;" 
+                    width="900" xml:lang="ada">THE HEALTHY INDIA</pre>
+            </td>
+            <td class="style59">
+                <asp:Image ID="Image2" runat="server" Height="175px" 
+                    ImageUrl="~/imagi/logo_main.jpg" Width="201px" />
+            </td>
+        </tr>
+        <tr>
+            <td class="style18" bgcolor="#FFCC99">
+              
+              <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Home.aspx" font-underline="false"
+                    ForeColor="Black">Home</asp:HyperLink>
+               </td>
+            <td style="margin-left: 80px" class="style15" bgcolor="#FFCC99">
+                
+                <asp:HyperLink ID="HyperLink3" runat="server" 
+                    NavigateUrl="~/Docter Profile 1.aspx" ForeColor="Black" font-underline="false">Doctor&#39;s  Profile</asp:HyperLink>
+            </td>
+            <td class="style15" bgcolor="#FFCC99">
+                
+                <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/login.aspx" 
+                    ForeColor="Black" font-underline="false"> Login/Registration </asp:HyperLink>
+            </td>
+            <td class="style21" bgcolor="#FFCC99">
+                <asp:HyperLink ID="HyperLink4" runat="server" NavigateUrl="~/About Us.aspx" 
+                    ForeColor="Black" font-underline="false">About Us</asp:HyperLink>
+            </td>
+            <td class="style21" bgcolor="#FFCC99">
+                <asp:HyperLink ID="HyperLink5" runat="server" NavigateUrl="~/Contact Us.aspx" 
+                    ForeColor="Black" font-underline="false">Contact Us</asp:HyperLink>
+            </td>
+            <td class="style58" bgcolor="#FFCC99">
+                &nbsp;<asp:HyperLink ID="HyperLink6" runat="server" 
+                    NavigateUrl="~/Gallery.aspx" ForeColor="Black" Font-Underline="false">Gallery</asp:HyperLink>
+            </td>
+        </tr>
+    </table>
+    
+    <table class="style28">
+        <%--<tr>
+            <td class="selected">
+                <span style="font-size:30px;"><b>
+                 <marquee style="height:35px; background-color:beige; width: 1327px;" 
+                    sscrollamount="10" scrolldelay="0" 
+                 behavior="up" >WELCOME TO THE HEALTHY INDIA</marquee></b></span><br>
+                 </td>
+        </tr>--%>
+        <tr>
+            <td class="style54">
+                
+                
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                    <table class="style63">
+                        <tr>
+                            <td>
+                                &nbsp;</td>
+                            <td>
+                                &nbsp;</td>
+                            <td>
+                                &nbsp;</td>
+                            <td>
+                                &nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                &nbsp;</td>
+                            <td>
+                                &nbsp;</td>
+                            <td>
+                                &nbsp;</td>
+                            <td>
+                                &nbsp;</td>
+                        </tr>
+                    </table>
+                </asp:ContentPlaceHolder>
+                
+                
+            </td>
+        </tr>
+    </table>
+    
+    
+    
+    
+    <table class="style28">
+        <tr>
+            <td class="style69"  style="text-align: center">
+                <asp:Image ID="Image3" runat="server" Height="54px" 
+                    ImageUrl="~/imagi/logo_main.jpg" Width="55px" />
+                <strong>THE HEALTHY INDIA</strong></td>
+            <td style="text-align: center" class="style69">
+                <strong><span>QUICK LINKS</span></strong></td>
+            <td class="style69">
+               <strong><span>CONTACT US</span></strong></td>
+        </tr>
+        <tr>
+            <td class="style70">
+                Welcome to THE HEALTHY INDIA 
+            </td>
+            <td class="auto-style1">
+                <asp:LinkButton ID="LinkButton1" runat="server" BorderColor="#66CCFF" 
+                    CssClass="style26" PostBackUrl="~/Home.aspx">HOME</asp:LinkButton>
+            </td>
+            <td class="style56" rowspan="3">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;E-mail: 
+                <a href="mailto:meghajoshi96696@gmail.com">meghajoshi9696gmail.com</a><br />
+                Mobile No. <span class="style82">9463402958</span>
+                <p>
+                    Developed and Designed by <span class="style67">Megha Joshi</span></p>
+            </td>
+        </tr>
+        <tr>
+            <td class="style40">
+                </td>
+            <td class="selected">
+                <asp:LinkButton ID="LinkButton2" runat="server" 
+                    PostBackUrl="~/Docter Profile 1.aspx">DOCTOR&#39;S PROFILE</asp:LinkButton>
+            </td>
+        </tr>
+        <tr>
+            <td class="style46">
+                &nbsp;</td>
+            <td class="selected">
+                <asp:LinkButton ID="LinkButton3" runat="server" onclientclick="Gallery" 
+                    PostBackUrl="~/Gallery.aspx">GALLERY</asp:LinkButton>
+            </td>
+        </tr>
+        <tr>
+            <td class="style46">
+                &nbsp;</td>
+            <td class="selected">
+                <asp:LinkButton ID="LinkButton4" runat="server" PostBackUrl="~/About Us.aspx">ABOUT US</asp:LinkButton>
+            </td>
+            <td class="style56">
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td class="style46">
+                &nbsp;</td>
+            <td class="selected">
+                <asp:LinkButton ID="LinkButton5" runat="server" PostBackUrl="~/Contact Us.aspx">CONTACT US</asp:LinkButton>
+            </td>
+            <td class="style56">
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td class="style81">
+                </td>
+            <td class="selected">
+                <asp:LinkButton ID="LinkButton6" runat="server" PostBackUrl="~/login.aspx">LOGIN</asp:LinkButton>
+            </td>
+            <td class="style80">
+                </td>
+        </tr>
+        <tr>
+            <td class="style46">
+                &nbsp;</td>
+            <td class="style44">
+                    © Copyright 2018
+                    <asp:HyperLink ID="HyperLink7" runat="server" ForeColor="Blue" 
+                        NavigateUrl="http://chandigarhuniversity.com/">Chandigarh University</asp:HyperLink>
+                    . All rights reserved.</td>
+            <td class="style56">
+                &nbsp;</td>
+        </tr>
+    </table>
+    
+    </form>
+    
+    </body>
+</html>
